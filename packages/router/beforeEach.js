@@ -2,12 +2,12 @@
  * @Author: maggot-code
  * @Date: 2021-03-02 10:01:43
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-02 18:06:12
+ * @LastEditTime: 2021-03-02 18:14:30
  * @Description: maggot utils router prev guard
  */
 const setTitle = (to, options) => {
     const { basetitle, deftitle } = options;
-    const title = to.meta.title ?? deftitle;
+    const title = to.meta.title || deftitle;
 
     window.document.title = `${title} - ${basetitle}`;
 }
