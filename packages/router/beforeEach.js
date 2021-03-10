@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2021-03-02 10:01:43
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-02 18:14:30
+ * @LastEditTime: 2021-03-11 00:04:07
  * @Description: maggot utils router prev guard
  */
 const setTitle = (to, options) => {
@@ -34,11 +34,10 @@ const guard = (to, from, options) => {
     }
 }
 
-export default (to, from, next, router) => {
+export default (to, from, router) => {
     const { options } = router;
-    const nextTo = guard(to, from, options);
 
     setTitle(to, options);
 
-    next(nextTo);
+    return guard(to, from, options);
 }
