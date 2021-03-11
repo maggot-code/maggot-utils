@@ -2,10 +2,10 @@
  * @Author: maggot-code
  * @Date: 2021-03-11 10:05:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-11 10:46:38
+ * @LastEditTime: 2021-03-11 12:16:10
  * @Description: maggot utils axios set param
  */
-import { hasNumber, hasString } from '../tool/common';
+const { hasNumber, hasString } = require('../tool/common');
 
 // timeout 指定请求超时的毫秒数(0 表示无超时时间)
 // 如果请求会话了超过 timeout 的时间，请求将被中断
