@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2021-03-11 10:05:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-11 12:16:10
+ * @LastEditTime: 2021-03-11 14:36:59
  * @Description: maggot utils axios set param
  */
 const { hasNumber, hasString } = require('../tool/common');
@@ -23,36 +23,32 @@ const VALIDATESTATUS = (status) => status < 400;
 
 /**
  * @description: 用于初始化axios对象的配置方法，并将初始设置与扩展参数合并
- * @param {String} tag 为该次请求标记标签属性，用于中断时区分并行请求
- * @param {Object} options 配置基础参数对象:
- * @param Boolean options.withCredentials 跨域请求时是否需要使用凭证
- * @param Number options.timeout 指定请求超时的毫秒数(0 表示无超时时间)
- * @param String options.responseType 表示服务器响应的数据类型，可以是 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'
- * @param String options.responseEncoding 表示用于解码响应的编码
- * @param Function options.validateStatus 定义对于给定的HTTP 响应状态码是 resolve 或 reject  promise 。
- * @param {Object} headers 请求头参数对象
+ * @param {Object} options 请求参数对象
+ * @param {Object} attr 基础配置参数对象
  * @return {Object} config - 配置参数
  */
-export default (tag, options, headers = {}) => {
+export default (options, attr = {}) => {
     const {
         withCredentials,
         timeout,
         responseType,
         responseEncoding,
         validateStatus
-    } = options;
+    } = attr;
 
     const config = {
-        requestTag: hasString(tag) ? tag : 'default',
         withCredentials: withCredentials || WITHCREDENTIALS,
         timeout: hasNumber(timeout) && timeout > 0 ? timeout : TIMEOUT,
         responseType: responseType || RESPONSETYPE,
         responseEncoding: responseEncoding || RESPONSEENCODING,
         validateStatus: validateStatus || VALIDATESTATUS,
-        headers: Object.assign({}, {
-            'Access-Control-Allow-Origin': window.location.origin,
-        }, headers)
     }
 
-    return config;
+    const { tag } = options;
+    const baseTag = hasString(tag) ? tag : 'default';
+
+    return Object.assign({}, config, {
+        ...options,
+        requestTag: baseTag
+    });
 }
