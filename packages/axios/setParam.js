@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2021-03-11 10:05:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-11 14:36:59
+ * @LastEditTime: 2021-03-14 23:56:44
  * @Description: maggot utils axios set param
  */
 const { hasNumber, hasString } = require('../tool/common');
