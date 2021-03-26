@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2021-03-02 10:01:43
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-26 20:41:14
+ * @LastEditTime: 2021-03-26 20:44:14
  * @Description: maggot utils router prev guard
  */
 const { hasString } = require('../tool/common');
@@ -15,7 +15,7 @@ const setTitle = (to, options) => {
     if (useTitle) {
         window.document.title = `${title} - ${basetitle}`;
     } else {
-        window.document.title = title;
+        window.document.title = basetitle;
     }
 
 }
