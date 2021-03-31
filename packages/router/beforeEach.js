@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2021-03-02 10:01:43
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-31 15:05:10
+ * @LastEditTime: 2021-03-31 15:31:28
  * @Description: maggot utils router prev guard
  */
 const { hasString, hasBoolean } = require('../tool/common');
@@ -21,14 +21,15 @@ const setTitle = (to, options) => {
 }
 
 const guard = (to, from, options) => {
-    const { token, loginName, rootName, isRedirect } = options;
+    const { token, loginName, rootName, redirect } = options;
     const { meta } = to;
     const toName = to.name;
     const fromName = from.name;
     const baseToken = token || getToken();
     const baseLoginName = hasString(loginName) ? loginName : 'login';
     const baseRootName = hasString(rootName) ? rootName : 'root';
-    const redirectName = hasBoolean(isRedirect) ? isRedirect ? toName : baseRootName : baseRootName;
+    const baseRedirect = hasBoolean(redirect) ? redirect : false;
+    const redirectName = baseRedirect ? toName : baseRootName;
 
     if (!meta.power && toName !== baseLoginName) {
         return {}
