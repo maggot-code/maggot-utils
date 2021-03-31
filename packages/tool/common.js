@@ -2,7 +2,7 @@
  * @Author: maggot-code
  * @Date: 2021-03-11 10:45:49
  * @LastEditors: maggot-code
- * @LastEditTime: 2021-03-11 12:24:24
+ * @LastEditTime: 2021-03-31 15:03:16
  * @Description: maggot utils tool common
  */
 import Flakeid from 'flakeid';
@@ -15,6 +15,8 @@ export const flake = new Flakeid({
 export const hasNumber = num => typeof num === 'number';
 
 export const hasString = str => typeof str === 'string';
+
+export const hasBoolean = boor => typeof boor === 'boolean';
 
 export const hasArray = arr => arr instanceof Array;
 
