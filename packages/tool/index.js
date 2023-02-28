@@ -21,5 +21,5 @@ import date from "./date";
 export default {
     ...common,
     ...cache,
-    ....date
+    ...date
 }
