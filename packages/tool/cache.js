@@ -5,8 +5,10 @@
  * @LastEditTime: 2021-03-11 12:24:03
  * @Description: maggot utils tool cache
  */
-const Cookies = require('js-cookie');
-const { hasNumber, hasString } = require('./common');
+// const Cookies = require('js-cookie');
+// const { hasNumber, hasString } = require('./common');
+import Cookies from "js-cookie";
+import {hasNumber,hasString} from "./common";
 
 const TOKENKEY = 'maggot_token';
 

@@ -5,7 +5,8 @@
  * @LastEditTime: 2021-03-14 17:32:55
  * @Description: maggot utils axios inlet
  */
-const setParam = require('./setParam').default;
+// const setParam = require('./setParam').default;
+import setParam from "./setParam";
 
 const request = (axios, options) => axios(setParam(options));
 
@@ -13,7 +14,11 @@ const send = (axios) => (options) => request(axios, options);
 
 const sendAll = (axios) => { }
 
-module.exports = {
+// module.exports = {
+//     Send: send,
+//     SendAll: sendAll
+// }
+export default {
     Send: send,
     SendAll: sendAll
 }

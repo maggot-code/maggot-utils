@@ -5,8 +5,10 @@
  * @LastEditTime: 2021-03-31 15:31:28
  * @Description: maggot utils router prev guard
  */
-const { hasString, hasBoolean } = require('../tool/common');
-const { getToken } = require('../tool/cache');
+// const { hasString, hasBoolean } = require('../tool/common');
+// const { getToken } = require('../tool/cache');
+import {hasString,hasBoolean} from "../tool/common";
+import {getToken} from "../tool/cache";
 
 const setTitle = (to, options) => {
     const { basetitle, deftitle, useTitle } = options;
