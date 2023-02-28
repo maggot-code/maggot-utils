@@ -8,8 +8,8 @@
 // const common = require('./common');
 // const cache = require('./cache');
 // const date = require('./date');
-import common from "./common";
-import cache from "./cache";
+import * as common from "./common";
+import * as cache from "./cache";
 import date from "./date";
 
 // module.exports = {
